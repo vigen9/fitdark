@@ -1,0 +1,62 @@
+body{
+  margin:0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background:#111;
+  color:#eee;
+}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  background:#000;
+}
+.logo{font-size:1.5em;font-weight:bold;color:#9f7aea;}
+.nav a, .nav button{
+  margin-left:20px;
+  color:#eee;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  font-size:1em;
+}
+.hero{
+  text-align:center;
+  padding:80px 20px;
+  background:linear-gradient(135deg,#1a1a1a,#000);
+}
+.hero .highlight{color:#9f7aea;}
+.btn{
+  display:inline-block;
+  padding:10px 20px;
+  margin-top:20px;
+  background:#9f7aea;
+  color:#fff;
+  border-radius:8px;
+  text-decoration:none;
+}
+.programs,.pricing{
+  padding:60px 20px;
+  text-align:center;
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.card{
+  background:#222;
+  padding:20px;
+  border-radius:10px;
+}
+.popular{
+  border:2px solid #9f7aea;
+}
+.footer{
+  text-align:center;
+  padding:20px;
+  background:#000;
+  margin-top:40px;
+}
