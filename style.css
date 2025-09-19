@@ -1,62 +1,89 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-  margin:0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background:#111;
-  color:#eee;
+  background:#0f0f10;color:#f1f1f1;
+  font-family:'Cairo',Arial,sans-serif;
+  line-height:1.7;transition:.4s;
 }
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px;
-  background:#000;
+a{text-decoration:none;color:inherit}
+h1,h2,h3{color:#8b5cf6;margin-bottom:20px;text-align:center}
+
+.navbar{
+  background:#0f0f10;padding:15px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:999;transition:.4s;
 }
-.logo{font-size:1.5em;font-weight:bold;color:#9f7aea;}
-.nav a, .nav button{
-  margin-left:20px;
-  color:#eee;
-  background:none;
-  border:none;
-  cursor:pointer;
-  text-decoration:none;
-  font-size:1em;
+.navbar.scrolled{background:#1a1a1d;box-shadow:0 2px 10px rgba(0,0,0,0.5)}
+.navbar .logo{font-size:1.6rem;font-weight:bold;color:#8b5cf6}
+.navbar nav a{margin:0 12px;transition:.3s;}
+.navbar nav a:hover{color:#8b5cf6}
+.actions{display:flex;gap:10px;align-items:center}
+
+.btn{
+  background:#8b5cf6;color:#fff;
+  padding:10px 22px;border-radius:30px;
+  font-weight:bold;transition:.3s;cursor:pointer;border:none;
 }
+.btn.small{padding:6px 14px;font-size:.9rem}
+.btn:hover{background:#a78bfa}
+
 .hero{
   text-align:center;
-  padding:80px 20px;
-  background:linear-gradient(135deg,#1a1a1a,#000);
+  padding:90px 20px;
+  background:linear-gradient(160deg,#1a1a1d 0%,#0f0f10 100%);
 }
-.hero .highlight{color:#9f7aea;}
-.btn{
-  display:inline-block;
-  padding:10px 20px;
-  margin-top:20px;
-  background:#9f7aea;
-  color:#fff;
-  border-radius:8px;
-  text-decoration:none;
-}
-.programs,.pricing{
-  padding:60px 20px;
-  text-align:center;
-}
+.hero p{color:#ddd;margin:15px auto 25px;max-width:600px}
+
+.section{padding:80px 20px}
+.section.dark{background:#1a1a1d}
 .cards{
-  display:grid;
+  display:grid;gap:20px;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-  margin-top:30px;
+  margin-top:40px
 }
 .card{
-  background:#222;
-  padding:20px;
-  border-radius:10px;
+  background:#1e1e20;
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:16px;padding:25px;text-align:center;
+  transition:.3s;
 }
-.popular{
-  border:2px solid #9f7aea;
+.card:hover{transform:translateY(-6px);
+  box-shadow:0 10px 20px rgba(139,92,246,0.3)}
+.price{font-size:1.8rem;color:#8b5cf6;margin:10px 0}
+.card.highlight{border:2px solid #8b5cf6;transform:scale(1.03)}
+
+.contact-form{
+  max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:15px
 }
+.contact-form input,.contact-form textarea{
+  background:#1a1a1d;border:1px solid rgba(255,255,255,0.1);
+  padding:12px;border-radius:10px;color:#fff;font-size:1rem;
+}
+.contact-form input:focus,.contact-form textarea:focus{
+  border-color:#8b5cf6;outline:none
+}
+.status{text-align:center;margin-top:10px;color:#8b5cf6}
+
 .footer{
-  text-align:center;
-  padding:20px;
-  background:#000;
-  margin-top:40px;
+  background:#0f0f10;border-top:1px solid rgba(255,255,255,0.1);
+  padding:25px;text-align:center;color:#aaa
 }
+
+.fade{opacity:0;transform:translateY(30px);transition:.6s}
+.fade.show{opacity:1;transform:translateY(0)}
+
+#backToTop{
+  position:fixed;bottom:25px;right:25px;
+  background:#8b5cf6;color:#fff;border:none;
+  border-radius:50%;width:45px;height:45px;
+  font-size:1.2rem;cursor:pointer;display:none;
+  box-shadow:0 6px 12px rgba(0,0,0,0.3);
+}
+#backToTop:hover{background:#a78bfa}
+
+/* وضع فاتح */
+body.light{background:#f5f5f5;color:#111}
+body.light .navbar{background:#fff;color:#111}
+body.light .card{background:#fff;color:#111}
+body.light .section.dark{background:#eee}
+body.light h1,h2,h3{color:#6d28d9}

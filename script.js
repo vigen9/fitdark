@@ -1,17 +1,38 @@
-// تبديل اللغة بين عربي وإنجليزي
-document.getElementById('langToggle').addEventListener('click',function(){
-  const body = document.body;
-  if(body.getAttribute('dir') === 'rtl'){
-    body.setAttribute('dir','ltr');
-    body.lang = 'en';
-    this.textContent = 'العربية';
-    document.querySelector('.hero h1').textContent = 'Start your journey with FitDark';
-    document.querySelector('.hero p').textContent = 'Personal training & nutrition program';
-  }else{
-    body.setAttribute('dir','rtl');
-    body.lang = 'ar';
-    this.textContent = 'English';
-    document.querySelector('.hero h1').innerHTML = 'ابدأ رحلتك مع <span class="highlight">FitDark</span>';
-    document.querySelector('.hero p').textContent = 'برنامج تدريبي + برنامج تغذية مخصص لك';
-  }
+// كشف العناصر أثناء التمرير
+document.querySelectorAll('.fade').forEach(el=>{
+  const reveal=()=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<window.innerHeight-50) el.classList.add('show');
+  };
+  window.addEventListener('scroll',reveal);
+  reveal();
+});
+
+// فورم التواصل (تجريبي)
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  document.getElementById('formStatus').innerText='✅ تم إرسال رسالتك (تجريبي)';
+  this.reset();
+});
+
+// زر الرجوع للأعلى
+const backToTop=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>300){backToTop.style.display='block';}
+  else{backToTop.style.display='none';}
+});
+backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// تبديل الوضع (داكن/فاتح)
+const toggleBtn=document.getElementById('toggleMode');
+toggleBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('light');
+  toggleBtn.textContent=document.body.classList.contains('light')?'☀️':'🌙';
+});
+
+// تغيير شكل النافبار عند التمرير
+const navbar=document.querySelector('.navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>50){navbar.classList.add('scrolled')}
+  else{navbar.classList.remove('scrolled')}
 });
